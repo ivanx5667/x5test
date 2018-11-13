@@ -10,8 +10,9 @@ if($method == 'POST'){
 	$text = $json->{'text'};
 	
 	
-print_r($_POST);
-	$json = json_decode($_POST);
+
+	$json11 = json_decode($_POST);
+	print_r($json11);
 echo '<br>test<br>';
 exit;
 	switch ($text) {
