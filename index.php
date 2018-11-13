@@ -9,6 +9,7 @@ if($method == 'POST'){
 
 	$text = $json->{'text'};
 print_r($text);
+echo '<br>test<br>';
 exit;
 	switch ($text) {
 		case 'hi':
