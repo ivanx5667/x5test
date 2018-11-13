@@ -17,6 +17,10 @@ if($method == 'POST'){
 	$body=$_POST;
 		$body= json_encode($body);
 	print_r($body);
+	
+	$obj = json_decode($body);
+print $obj->{'text'}; 
+	
 		$text1 = $body->{'text'};
 echo "<br>$text1<br>";
 exit;
