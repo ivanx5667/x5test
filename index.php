@@ -5,7 +5,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 if($method == 'POST'){
 	$body=$_POST;
 		$body= json_encode($body);
-	print_r($body);
+	// print_r($body);
 	
 	$obj = json_decode($body);
 
