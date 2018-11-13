@@ -9,7 +9,7 @@ if($method == 'POST'){
 	
 	$obj = json_decode($body);
 
-	$text = $obj->{'queryResult'}->{'queryText'}
+	$text = $obj->{'queryResult'}->{'queryText'};
 		// $text = $obj->{'text'};
 
 	switch ($text) {
