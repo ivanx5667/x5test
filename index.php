@@ -18,7 +18,7 @@ if($method == 'POST'){
 		$body= json_encode($body);
 	print_r($body);
 		$text1 = $body->{'text'};
-echo '<br>test<br>';
+echo "<br>$text1<br>";
 exit;
 	switch ($text) {
 		case 'hi':
