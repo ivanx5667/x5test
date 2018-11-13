@@ -38,7 +38,8 @@ if($method == 'POST'){
 	// $response->source = "webhook";
 	
 	// echo json_encode($response);
-return json_encode($response);
+// return json_encode($response);
+echo '123123';
 }
 else
 {
