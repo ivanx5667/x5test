@@ -6,13 +6,15 @@ $method = $_SERVER['REQUEST_METHOD'];
 if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
-
 	$text = $json->{'text'};
-	
-	
 
-	$json11 = json_decode($_POST);
-	print_r($json11);
+
+$requestBody=$_POST;
+	$json1 = $requestBody;
+	$text1 = $json1->{'text'};
+
+	
+	print_r($text1);
 echo '<br>test<br>';
 exit;
 	switch ($text) {
