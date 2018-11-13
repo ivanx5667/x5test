@@ -15,7 +15,7 @@ if($method == 'POST'){
 
 
 	$body=$_POST;
-		json_encode($body)
+		$body= json_encode($body);
 	print_r($body);
 		$text1 = $body->{'text'};
 echo '<br>test<br>';
