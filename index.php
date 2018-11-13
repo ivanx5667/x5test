@@ -8,7 +8,9 @@ if($method == 'POST'){
 	$json = json_decode($requestBody);
 
 	$text = $json->{'text'};
-print_r($text);
+	
+	
+print_r($_POST);
 echo '<br>test<br>';
 exit;
 	switch ($text) {
