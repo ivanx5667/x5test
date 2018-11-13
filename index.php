@@ -18,7 +18,7 @@ if($method == 'POST'){
 // echo $speech;
 // exit;
 	switch ($text) {
-		case 'hi':
+		case 'hook':
 			$speech = "Hi, Nice to meet you";
 			break;
 
@@ -43,7 +43,7 @@ if($method == 'POST'){
 	// $response->source = "webhook";
 	
 	echo json_encode($response);
-return $response;
+
 }
 else
 {
