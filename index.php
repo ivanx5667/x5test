@@ -12,7 +12,7 @@ if($method == 'POST'){
 	$obj = json_decode($body);
 // print $obj->{'text'}; 
 	
-		$text = $body->{'text'};
+		$text = $obj->{'text'};
 echo "<br>$text1<br>___";
 switch ($text) {
 		case 'hi':
