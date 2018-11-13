@@ -13,14 +13,10 @@ if($method == 'POST'){
 // print $obj->{'text'}; 
 	
 		$text = $obj->{'text'};
-echo "<br>$text1<br>___";
-switch ($text) {
-		case 'hi':
-			$speech = "Hi, Nice to meet you";
-			break;
-}
-echo $speech;
-exit;
+// echo "<br>$text1<br>___";
+
+// echo $speech;
+// exit;
 	switch ($text) {
 		case 'hi':
 			$speech = "Hi, Nice to meet you";
