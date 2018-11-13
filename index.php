@@ -2,21 +2,16 @@
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Process only when method is POST
 if($method == 'POST'){
-
 	$body=$_POST;
 		$body= json_encode($body);
 	print_r($body);
 	
 	$obj = json_decode($body);
-// print $obj->{'text'}; 
-	
-		$text = $obj->{'text'};
-// echo "<br>$text1<br>___";
 
-// echo $speech;
-// exit;
+	$text = $obj->{'queryResult'}->{'queryText'}
+		// $text = $obj->{'text'};
+
 	switch ($text) {
 		case 'hook':
 			$speech = "Hi, Nice to meet you";
