@@ -11,6 +11,7 @@ if($method == 'POST'){
 	
 	
 print_r($_POST);
+	$json = json_decode($_POST);
 echo '<br>test<br>';
 exit;
 	switch ($text) {
