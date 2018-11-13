@@ -7,7 +7,7 @@ if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 
-	$text = $json->result->parameters->text;
+	$text = $json->{'text'};
 
 	switch ($text) {
 		case 'hi':
@@ -22,12 +22,8 @@ if($method == 'POST'){
 			$speech = "Yes, you can type anything here.";
 			break;
 		
-		case 'hook':
-			$speech = "Yes, you can use hook.";
-			break;
-		
 		default:
-			$speech = "Sorry, DEFAULT.";
+			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	}
 
@@ -39,7 +35,7 @@ if($method == 'POST'){
 }
 else
 {
-	echo "Method not allowed!";
+	echo "Method not allowed";
 }
 
 ?>
