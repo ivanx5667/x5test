@@ -38,11 +38,12 @@ if($method == 'POST'){
 	$response = new \stdClass();
 	$response->fulfillmentText = $speech;
 	
-	$response->speech = $speech;
-	$response->displayText = $speech;
-	$response->source = "webhook";
+	// $response->speech = $speech;
+	// $response->displayText = $speech;
+	// $response->source = "webhook";
 	
 	echo json_encode($response);
+return $response;
 }
 else
 {
