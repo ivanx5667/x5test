@@ -3,14 +3,21 @@
 $method = $_SERVER['REQUEST_METHOD'];
 
 if($method == 'POST'){
-	$body=$_POST;
-		$body= json_encode($body);
-	// print_r($body);
 	
-	$obj = json_decode($body);
-
-	$text = $obj->{'queryResult'}->{'queryText'};
-		// $text = $obj->{'text'};
+	
+		$requestBody = file_get_contents('php://input');
+	$json = json_decode($requestBody);
+	$text = $json->queryResult->parameters->text;
+	
+	
+	
+	// $body=$_POST;
+		// $body= json_encode($body);
+	// $obj = json_decode($body);
+	// $text = $obj->{'queryResult'}->{'queryText'};
+		
+		
+		
 
 	switch ($text) {
 		case 'hook':
