@@ -4,26 +4,17 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // Process only when method is POST
 if($method == 'POST'){
-	$requestBody = file_get_contents('php://input');
-	$json = json_decode($requestBody);
-	$text = $json->{'text'};
-
-
-
-
-
-
 
 	$body=$_POST;
 		$body= json_encode($body);
 	print_r($body);
 	
 	$obj = json_decode($body);
-print $obj->{'text'}; 
+// print $obj->{'text'}; 
 	
-		$text1 = $body->{'text'};
-echo "<br>$text1<br>";
-exit;
+		$text = $body->{'text'};
+// echo "<br>$text1<br>";
+// exit;
 	switch ($text) {
 		case 'hi':
 			$speech = "Hi, Nice to meet you";
