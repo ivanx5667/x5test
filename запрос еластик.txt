@@ -1,0 +1,96 @@
+curl --header "content-type: application/JSON" -XPUT 'http://localhost:9200/habrahabr/users/1' -d '
+{ 
+ "firstname"   : "Piotr",
+ "surname"     : "Petrov"
+}'
+
+
+curl --header "content-type: application/JSON" -XPUT 'http://localhost:9200/habrahabr/users/2' -d '
+{ 
+ "firstname"   : "Ivan",
+ "surname"     : "Sachkov",
+ "birthDate"   : "1978-12-13",
+  "location"    : "Briansk, Russian Federation",
+ "skills"      : ["HTML", "php"]
+}'
+
+
+curl 'http://localhost:9200/habrahabr/users/2'
+
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "size": 1,
+  "_source": ["title", "published_at"],
+  "sort": [{"published_at": "desc"}]
+}'
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+    "query": { 
+        "bool": {
+            "filter": [
+                {     "range": {"published_at": { "gte": "2014-09-01" }    }}
+            ]
+        }
+    }
+}'
+
+
+
+
+curl -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "filter": {
+    "range": {
+      "published_at": { "gte": "2014-09-01" }
+    }
+  }
+}'
+
+curl  --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "query": {
+    "bool": {
+      "filter": {
+        "term": {
+          "tags": "котята"
+        }
+      }
+    }
+  }
+}'
+
+
+// поиск
+curl  --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "query": {
+    "match": {
+      "content": "история"
+    }
+  }
+}'
+
+
+
+
+
+//анализатор
+
+curl  --header "content-type: application/JSON" -XGET "$ES_URL/_analyze?pretty" -d'
+{
+  "analyzer" : "standard",
+  "text" : "new text searching"
+}'
+
+
+//анализатор
+
+curl  --header "content-type: application/JSON" -XGET "$ES_URL/_analyze?pretty" -d'
+{
+  "analyzer" : "russian",
+  "text" : "Веселые истории про котят"
+}'
