@@ -1,0 +1,94 @@
+curl --header "content-type: application/JSON" -XPUT "$ES_URL/blog/post/2" -d'
+{
+  "title": "Веселые щенки",
+  "content": "<p>Смешная история про щенков<p>",
+  "tags": [
+    "щенки",
+    "смешная история"
+  ],
+  "published_at": "2014-08-12T20:44:42+00:00"
+}'
+
+
+
+curl --header "content-type: application/JSON" -XPUT "$ES_URL/blog/post/3" -d'
+{
+  "title": "Как у меня появился котенок",
+  "content": "<p>Душераздирающая история про бедного котенка с улицы<p>",
+  "tags": [
+    "котята"
+  ],
+  "published_at": "2014-07-21T20:44:42+00:00"
+}'
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "size": 1,
+  "_source": ["title", "published_at"],
+  "sort": [{"published_at": "desc"}]
+}'
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "_source": [
+    "title",
+    "tags"
+  ],
+  "filter": {
+    "term": {
+      "tags": "котята"
+    }
+  }
+}'
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "filter": {
+    "range": {
+      "published_at": { "gte": "2014-09-01" }
+    }
+  }
+}'
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "filter": {
+    "range": {
+      "published_at": { "gte": "2014-09-01" }
+    }
+  }
+}'
+
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "size": 1,
+  "_source": ["title", "published_at"],
+  "sort": [{"published_at": "desc"}]
+}'
+
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "size": 1,
+  "_source": ["title"],
+  "sort": [{"published_at": "desc"}]
+}'
+
+
+
+curl --header "content-type: application/JSON" -XGET "$ES_URL/blog/post/_search?pretty" -d'
+{
+  "_source": false,
+  "query": {
+    "match": {
+      "content": "история"
+    }
+  }
+}'
